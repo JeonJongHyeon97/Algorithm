@@ -4,6 +4,8 @@ Created on Tue Apr  6 15:41:43 2021
 
 @author: user
 """
+# 돌이 밖으로 나가는 경우만 생각하여 그냥 코딩...
+#
 
 k, s, n = map(str, input().split())
 
