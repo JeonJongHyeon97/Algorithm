@@ -18,22 +18,26 @@ que = deque(range(1, n+1))
 count=0
 num=list(map(int, input().split()))
 for i in range(len(num)):
-    print("target : ", num[i])
+    # print("\ntarget : ", num[i])
+    # print(que.index(num[i]))
+    # print(len(que)-que.index(num[i]))
     if num[i] == que[0]:
         que.popleft()
-        print("1", que)
-    elif que.index(num[i]) > len(num)-que.index(num[i]):
-        count+=abs(len(num)-que.index(num[i]))
-        que.rotate(len(num)-que.index(num[i]))
+    elif que.index(num[i]) > len(que)-que.index(num[i]):
+        count+=abs(len(que)-que.index(num[i]))
+        # print("move : ",len(que)-que.index(num[i]))
+        que.rotate(len(que)-que.index(num[i]))
         
-        que.popleft()
-        print("2",que)
-    elif que.index(num[i]) <= len(num)-que.index(num[i]):
+        # print(que.popleft())
+        # print("2",que)
+    elif que.index(num[i]) <= len(que)-que.index(num[i]):
         count+=abs(que.index(num[i]))
+        # print("move : ",-(que.index(num[i])))
         que.rotate(-(que.index(num[i])))
         
-        que.popleft()
-        print("3",que)
+        # print(que.popleft())
+        # print("3",que)
+
 print(count)       
         
         
