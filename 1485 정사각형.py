@@ -25,11 +25,12 @@ for _ in range(case):
         elif leng.count(leng[i]) == 2:
             two.append(leng[i])
     if len(four)==4 and len(two)==2:
-        print(1)
+        if four[0]*(2**(1/2))==two[0]:
+            print(1)
     else :
         print(0)
 
- if (d1[0]-d2[0])*(d1[0]-d3[0])==(d1[1]-d3[1])*(d1[1]-d2[1]) or (d1[0]-d2[0])*(d1[0]-d4[0])==(d1[1]-d4[1])*(d1[1]-d2[1]):
+ 
                 
 
 

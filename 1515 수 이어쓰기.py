@@ -8,5 +8,33 @@
 
 남은 수를 이어 붙인 수가 주어질 때, N의 최솟값을 구하는 프로그램을 작성하시오. 아무것도 지우지 않을 수도 있다.)
 """
+import sys
+
+delete = list(sys.stdin.readline())
+origin = ""
+count=0
+repeat=True
+while repeat:
+    count+=1
+    index=-1
+    origin+=str(count)
+    make=origin
+    # print("make : ", make)
+    for i in range(len(delete)):
+        # print("i : ",delete[i])
+        if delete[i] in make:
+            make=make[make.index(delete[i])+1:]
+            if i == len(delete)-1:
+                repeat=False
+                
+        else:
+            # print("없음 : ", delete[i])
+            break
+    
+
+print(count)
+
+
+
 
 
