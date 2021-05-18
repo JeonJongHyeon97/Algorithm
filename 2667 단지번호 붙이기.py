@@ -28,12 +28,12 @@ def dfs(x,y):
         if 0<=nx<n and 0<=ny<n and graph[nx][ny] ==1: #인접한 곳의 좌표가 범위 = 1
             graph[nx][ny] = 0 # 방문했던 곳은 0으로 다시 바꿔줌 
             dfs(nx,ny) # 탐색에 성공한 곳에서 다시 시작
-    return cnt 
+    return cnt # 단지에 포함되는 집의 갯수
 
 for i in range(n): # 그래프를 한칸씩 탐색(dgs함수 대입)
     for j in range(n):
         if graph[i][j] == 1: # 1이면 거기서 부터 dfs 함수 실행
-            cnt = 0
+            cnt = 0 # 단지에 포함되는 집의 갯수 초기화
             answer.append(dfs(i,j))
             
 print(len(answer)) # 전체 단지 수
