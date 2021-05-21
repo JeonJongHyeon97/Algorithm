@@ -24,3 +24,5 @@ for i in range(case_Num):
     result = (math.factorial(m)//math.factorial(n)//math.factorial(m-n))
     
     print(result)
+    
+    
