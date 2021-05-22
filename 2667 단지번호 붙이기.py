@@ -18,6 +18,7 @@ cnt = 0
 for _ in range(n):
     x = list(map(int,input()))
     graph.append(x)
+    
 def dfs(x,y):
     global cnt
     graph[x][y] = 0 # 처음 시작(탐색)한 곳은 0으로 바꿔줌
