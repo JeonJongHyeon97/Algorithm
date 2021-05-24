@@ -10,21 +10,27 @@ import sys
 input = sys.stdin.readline
 
 n, m = map(int, input().split())
-a = list(map(int, input().split()))
+treeList = list(map(int, input().split()))
 
-left, right, ans = 0, max(a), 0
-while left <= right:
+left, right, mid = 0, max(treeList), 0
+
+print("start : ",left, right, mid)
+while left < right:
     mid = (left + right) // 2
     tree = 0
+    print(" ")
+    print("before : ",left, right, mid)
     for i in range(n):
-        if mid < a[i]:
-            tree += a[i] - mid
+        if mid < treeList[i]:
+            tree += treeList[i] - mid
+    print("tree : ", tree)
+    print("m : ", m)
     if tree >= m:
-        ans = mid
         left = mid + 1
     elif tree < m:
         right = mid - 1
-print(ans)
+    print("after : ",left, right, mid)
+print(mid-1)
 
 
 
