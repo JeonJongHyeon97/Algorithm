@@ -20,10 +20,6 @@ for _ in range(t):
     count=1
     while len(doc) != 0:
         docSorted = sorted(doc, reverse=True)
-        print(" ")
-        print("doc : ", doc)
-        print("docSorted : ", docSorted)
-        print("num : ", num)
         if doc[0] != docSorted[0]:
             doc.append(doc.popleft())
             num.append(num.popleft())

@@ -15,11 +15,12 @@ ans = 9999
 for c in cb: 
     start = c 
     link = list(set(range(n)) - set(c)) 
-    start_power, link_teamwork = 0, 0 
+    start_power, link_power = 0, 0 
     for i in range(n//2 - 1): 
         for j in range(i + 1, n//2): 
             start_power += s[start[i]][start[j]] + s[start[j]][start[i]] 
-            link_teamwork += s[link[i]][link[j]] + s[link[j]][link[i]] 
-    ans = min(ans, abs(link_teamwork - start_power)) 
+            link_power += s[link[i]][link[j]] + s[link[j]][link[i]] 
+    ans = min(ans, abs(link_power - start_power)) 
 print(ans)
 
+    
