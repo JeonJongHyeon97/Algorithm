@@ -7,18 +7,16 @@ import sys
 input = sys.stdin.readline
 n, m = map(int, input().split())
 A = list(map(int, input().split()))
-sum_A = [0] * (n + 1)
+sum_list = [0] * (n + 1)
 for i in range(1, n + 1):
-    sum_A[i] = sum_A[i-1] + A[i-1]  
+    sum_list[i] = sum_list[i-1] + list[i-1]  
 answer = 0
 for i in range(n):
     for j in range(i+1, n+1):
-        if sum_A[j] < m: 
+        if sum_list[j] < m: 
             pass
-        elif sum_A[j] - sum_A[i] > m:
+        elif sum_list[j] - sum_list[i] > m:
             break
-        elif sum_A[j] - sum_A[i] == m:
+        elif sum_list[j] - sum_list[i] == m:
             answer += 1
             break
-            
-print(answer)    
