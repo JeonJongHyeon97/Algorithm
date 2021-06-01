@@ -26,7 +26,7 @@ def dfs(x,y):
     for k in range(4): #동서남북 인접한 네 방향에 대해서 탐색
         nx = x + dx[k]
         ny = y + dy[k]
-        if 0<=nx<n and 0<=ny<n and graph[nx][ny] ==1: #인접한 곳의 좌표가 범위 = 1
+        if 0<=nx<n and 0<=ny<n and graph[nx][ny] ==1: #인접한 곳의 좌표가 범위안이고 = 1
             graph[nx][ny] = 0 # 방문했던 곳은 0으로 다시 바꿔줌 
             dfs(nx,ny) # 탐색에 성공한 곳에서 다시 시작
     return cnt # 단지에 포함되는 집의 갯수
