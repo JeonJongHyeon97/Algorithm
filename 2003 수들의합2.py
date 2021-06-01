@@ -9,20 +9,32 @@ import sys
 input = sys.stdin.readline
 n, m = map(int, input().split())
 A = list(map(int, input().split()))
-sum_list = [0] * (n + 1)
 
-for i in range(1, n + 1):   # 미리 리스트에 합을 구하는 모든 경우의수 넣기
-    sum_list[i] = sum_list[i-1] + A[i-1]  
-    
-answer = 0
-for i in range(n):
-    for j in range(i+1, n+1):
-        if sum_list[j] < m: 
-            pass
-        elif sum_list[j] - sum_list[i] > m: # 합이 m 보다 크면 바로 break
-            break
-        elif sum_list[j] - sum_list[i] == m:
-            answer += 1
-            break
-        
+total=0
+answer=0
+for i in range(len(A)):
+    total=A[i]
+    if total == m:
+        answer+=1
+    elif total > m:
+        continue
+    else:
+        for j in range(i+1, len(A)):
+            total+=A[j]
+            if total > m:
+                break
+            elif total == m:
+                answer+=1
+                break
+            else:
+                pass
 print(answer)
+
+
+
+
+
+
+
+
+
