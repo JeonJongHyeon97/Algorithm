@@ -25,4 +25,3 @@ while queue:    # queue에 있는 시작점을 모두 처리할 때까지 반복
             
 print(s[n - 1][m - 1])
 
-a, b = [1,2]
