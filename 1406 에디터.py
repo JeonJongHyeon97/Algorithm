@@ -5,11 +5,11 @@
 
 import sys 
 input=sys.stdin.readline
-left = list(input()) 
+left = list(input().rstrip())
 right = []
 m = int(input()) 
 for _ in range(m): 
-    command = input()
+    command = input().rstrip()
     if command[0] == 'L' and left: 
         right.append(left.pop()) 
     elif command[0] == 'D' and right: 
@@ -17,8 +17,11 @@ for _ in range(m):
     elif command[0] == 'B' and left: 
         left.pop() 
     elif command[0] == 'P': 
-        left.append(command[-1]) 
-    print()
-    print(''.join(left + right[::-1]))
+        left.append(command[-1])
 
 print(''.join(left + right[::-1]))
+
+
+
+a = input()
+b = sys.stdin.readlines()
