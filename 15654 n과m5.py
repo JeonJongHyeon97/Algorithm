@@ -11,7 +11,7 @@ num=sorted(num)
 solve = []
 
 #DFS
-def BackT(depth):
+def BackT(depth: int):
     if depth == m:
         print(" ".join(solve))
         return

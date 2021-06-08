@@ -7,7 +7,7 @@ Created on Tue Jun  1 10:38:39 2021
 # 분할정복
 
 # define devide and conquer funtion
-def quad_tree(x, y, n):
+def quad_tree(x: int, y: int, n: int):
     global matrix, blue, white
     color = matrix[y][x] # base color
     same_color = True # check point for same color

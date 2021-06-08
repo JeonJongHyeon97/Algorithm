@@ -11,7 +11,7 @@ n = int(input())
 matrix = [["*"]*n for _ in range(n)] # matrix(full of *)
 
 # function for ddvide and conquer and remove *(center of square)
-def star(x, y,n):
+def star(x: int, y: int, n: int):
     for i in range(n//3,n//3*2):
         for j in range(n//3, n//3*2):
             matrix[x+i][y+j]=" "     # remove * (center of square)

@@ -11,7 +11,7 @@ for _ in range(n):
         graph[node[0]].append(i)
 
 # 전위 순회 ( Preorder)
-def preorder(start):
+def preorder(start: str):
     print(start, end='')
     global graph
     child = graph[start]
@@ -26,7 +26,7 @@ def preorder(start):
 preorder('A')
 print()
 # 중위 순회 (Inorder)
-def inorder(start):
+def inorder(start: str):
     global graph
     child = graph[start]
 
@@ -41,7 +41,7 @@ def inorder(start):
 inorder('A')
 print()
 # 후위 순회 (Postorder)
-def postorder(start):
+def postorder(start: str):
     global graph
     child = graph[start]
 

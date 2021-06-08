@@ -6,7 +6,7 @@
 
 n, a, b = map(int, input().split())
 
-def starcraft(a, b, num, Round):
+def starcraft(a: int, b: int, num: int, Round: int):
     if a==b:    # same number
         print(Round-1)
         return
