@@ -8,20 +8,21 @@ Created on Tue Jun  1 15:41:30 2021
 # 미리 *로 채워진 리스트를 만들고, 분할 정복하며 지우기
 
 n = int(input())
-graph = [["*"]*n for _ in range(n)] # 미리 *로 채워진 행렬 선언
+matrix = [["*"]*n for _ in range(n)] # matrix(full of *)
 
+# function for ddvide and conquer and remove *(center of square)
 def star(x, y,n):
     for i in range(n//3,n//3*2):
         for j in range(n//3, n//3*2):
-            graph[x+i][y+j]=" "     # 가운데 부분만 *을 공백으로 대체
-    if n > 3:   # n이 3보다 작으면 더이상 나눌수 없음
+            matrix[x+i][y+j]=" "     # remove * (center of square)
+    if n > 3:   # n < 3 -> can't divide into small square
         for i in range(1,4):
-            for j in range(1,4):    # 3분할 정복
-                if i != 2 or j != 2:
+            for j in range(1,4):    # tripartitioning and conquer
+                if i != 2 or j != 2:    # center of square -> pass
                     star(x+(i-1)*(n//3),y+(j-1)*(n//3),n//3)
 
 star(0, 0, n)
 
-for i in graph:
+for i in matrix:
     print("".join(i))
 

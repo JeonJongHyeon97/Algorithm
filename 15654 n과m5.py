@@ -10,6 +10,7 @@ num = list(map(int, input().split()))
 num=sorted(num)
 solve = []
 
+#DFS
 def BackT(depth):
     if depth == m:
         print(" ".join(solve))

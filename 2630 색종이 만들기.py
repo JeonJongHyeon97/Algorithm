@@ -6,30 +6,30 @@ Created on Tue Jun  1 10:38:39 2021
 """
 # 분할정복
 
-#쿼드 트리 함수 정의
+# define devide and conquer funtion
 def quad_tree(x, y, n):
-    global matrix, blue, white # global 접근 제한자로 외부에 선언된 변수 가져오기
-    color = matrix[y][x] # 첫 색깔과 나머지 색이 같아야함
-    double_break = False # for문 탈출용 double_break
+    global matrix, blue, white
+    color = matrix[y][x] # base color
+    same_color = True # check point for same color
     
     for i in range(x, x+n):
-        if double_break:
+        if not same_color:
             break
-            
+        # check included square's color
         for j in range(y, y+n):
-            if matrix[j][i] != color: # 정사각형이 같은 색으로 이루어져있지 않다면, 4조각으로 나누기
-                quad_tree(x, y, n//2) # 2사분면
-                quad_tree(x + n//2, y, n//2) # 1사분면
-                quad_tree(x, y + n//2, n//2) # 3사분면
-                quad_tree(x + n//2, y + n//2, n//2) # 4사분면
-                double_break = True # 탈출!
+            if matrix[j][i] != color: # if square contain 2 colors
+                quad_tree(x, y, n//2) # second quadrant
+                quad_tree(x + n//2, y, n//2) # first quadrant
+                quad_tree(x, y + n//2, n//2) # third quadrant
+                quad_tree(x + n//2, y + n//2, n//2) # fourth quadrant
+                same_color = False # square contain 2 colors
                 break
     
-    if not double_break:
-        if matrix[y][x] == 1: # 파란색이라면
+    if same_color: # all of included squares' color is same
+        if matrix[y][x] == 1: # blue
             blue += 1
         else:
-            white += 1 # 흰색이라면
+            white += 1 # white
 
 
 N = int(input())

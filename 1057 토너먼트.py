@@ -7,11 +7,11 @@
 n, a, b = map(int, input().split())
 
 def starcraft(a, b, num, Round):
-    if a==b:
+    if a==b:    # same number
         print(Round-1)
         return
-    a=(a+1)//2
-    b=(b+1)//2
+    a=(a+1)//2  # next round number
+    b=(b+1)//2  # next round number
     starcraft(a, b, (num+1)//2, Round+1)
 
 starcraft(min(a,b),max(a,b),n,1)

@@ -18,6 +18,7 @@ m= int(input())
 start, end, mid = 0, budget[-1], budget[-1]//2
 
 ans=0
+# binary search
 while start <= end:
     total=0
     mid = (start+end)//2
@@ -32,4 +33,5 @@ while start <= end:
         ans=mid
     elif total > m:
         end = mid - 1
+
 print(ans)
