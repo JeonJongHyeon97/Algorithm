@@ -15,3 +15,10 @@ def starcraft(a: int, b: int, num: int, Round: int):
     starcraft(a, b, (num+1)//2, Round+1)
 
 starcraft(min(a,b),max(a,b),n,1)
+
+
+
+
+
+
+

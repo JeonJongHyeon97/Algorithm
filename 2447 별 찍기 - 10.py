@@ -1,9 +1,5 @@
 # -*- coding: utf-8 -*-
-"""
-Created on Tue Jun  1 15:41:30 2021
 
-@author: user
-"""
 # 분할정복
 # 미리 *로 채워진 리스트를 만들고, 분할 정복하며 지우기
 
