@@ -23,4 +23,7 @@ else:
             break
         if i == 1:  # last permutation
             print(-1)
-        
+
+
+
+

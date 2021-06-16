@@ -30,13 +30,10 @@ def quad_tree(x: int, y: int, n: int):
             blue += 1
         else:
             white += 1 # white
-
-
 N = int(input())
 matrix = [list(map(int, input().split())) for _ in range(N)]
 blue = 0
 white = 0
-
 quad_tree(0,0,N)
 print(white)
 print(blue)
