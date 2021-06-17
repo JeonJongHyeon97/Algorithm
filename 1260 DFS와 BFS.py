@@ -3,11 +3,13 @@
 
 import sys
 from collections import deque
+
 input = sys.stdin.readline
 n, m, v = map(int, input().split())
 graph = {}
 for i in range(n):
     graph[i+1]=[]
+# make graph
 for _ in range(m):
     key, value = map(int, input().split())
     if value not in graph[key]:
@@ -24,8 +26,8 @@ def DFS(start):
     visited.append(start)
     if graph[start]:
         for i in graph[start]:
-            if i not in visited:    # 이미 방문한 노드인지 확인
-                DFS(i)  # 재귀를 이용해 깊이 우선 탐색
+            if i not in visited:    # check (already visited)
+                DFS(i)
 
 DFS(v)
 print(*visited)
@@ -37,8 +39,8 @@ visited = []
 def BFS(start):
     global queue
     while queue:
-        start = queue.popleft() # 선입선출
-        if start not in visited:    # 이미 방문한 노드인지 확인
+        start = queue.popleft() # FIFO with queue
+        if start not in visited:    # check (already visitied)
             visited.append(start)
             for i in graph[start]:
                 queue.append(i)
