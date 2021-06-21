@@ -1,3 +1,5 @@
+# DFS
+# 인접한 배추들을 먼저 탐색하기
 import sys
 input = sys.stdin.readline
 ans =[]
