@@ -1,0 +1,492 @@
+\n : 줄바꿈	\t : 탭	 	\\ : \ 
+문자열\ : 보기에는 띄어쓰기가 있지만 실제론 띄어쓰지 않음
+int(interger) : 정수	float(floating point) : 부동 소수점
+타입 지정
+변수명: 타입 = 값	ex) a: int = 9
+% : 나머지를 구하는 연산자	// : 몫을 구하는 연산자
+** : 제곱을 구하는 연산자	복합 대입 연산자 : +=, -=, *=, /=, %=,**=
+global 변수이름 : 함수 밖에서 선언한 변수를 함수 안에서 사용 할 수 있게 해줌.
+pass 키워드 : pass를 써놓으면 오류를 일으키지 않고 넘어감
+	나중에 수정하기 위함
+len(문자열) : 문자열의 길이	ex) len(“안녕”)  2
+type(문자열) : 문자열의 타입을 확인가능	ex) type(“안녕”)  <class 'str'>
+	ex) type([])==list  True
+round(숫자,자릿수) : 입력한 숫자를 자릿수에서 반올림해서 나타냄
+min() max() sum() : 최소, 최대, 합 
+pow() divmod() abs() : 제곱, 나누기의 몫과 나머지, 절대값
+int(다른자료형) float() str() : 다른 자료형을 캐스트(cast)하여 원하는 자료형으로 변환
+input(표시할 문자열) : 사용자로부터 문자열을 입력 받음
+	ex) input_data=input("문자를 입력해주세요")
+	 이때 프로그램이 잠시 block(멈춤)됨을 이용 가능
+sys.stdin.readline() : input()보다 처리 속도가 빠르고 효율적
+import sys
+기본형 sys.stdin.readline()  개행 문자까지 저장
+a,b,c=sys.stdin.readline().split() 띄어쓰기 기준으로 각각 저장
+a,b=map(int,sys.stdin.readline().spit()) int로 변환 후 각각 저장
+list(map(str ,sys.stdin.readline())) abc를 ['a', 'b', 'c', '\n']
+개행문자 제거
+a=sys.stdin.readline().strip()
+for i in range(len(a)):
+    if a[i][-1]=='\n':
+        a[i]=a[i][:-1]
+값 (not)in 자료 : 자료에 값이 있는지(없는지) 확인. 결과는 boolean
+	"안“ in "안녕하세요"  True	12 in [11, 12, 13]  True
+range(시작수, 길이, 간격) : 간격에 -1 넣을시 역순 
+	ex) range(0,6,2)  0 2 4 6을 의미
+break : 반복문에서 반복을 모두 벗어남
+continue : 반복문에서 현재 반복을 종료(스킵)하고 다음 반복으로 넘어감
+return : 함수를 실행했던 위치로 돌아가라는 뜻. 함수의 결과 값(return value)을 돌려줄 	때 (아무 것도 없을 때 None 출력
+     ex)def sum_all(start=0, end=100, step=1):
+		output = 0
+		for i in range(start, end+1, step):
+			output +=1
+		return output
+	if 문에서 중간에 조기리턴(early returns)을 씀으로써 들여쓰기를 줄일 수 있음
+	ex) if n in dictionary:
+		return dictionary[n]
+	    #원래는 else:를 쓰고 뒤에 와야 하는 문장
+	    dictionary[n] = 2
+	    return dictionary[3]
+next(이터레이터) : 이터레이터의 값을 하나씩 순서대로 추출해 주는 함수
+enumerate(리스트) : 인덱스와 리스트의 값을 모두 추출해 주는 함수
+	ex) arr = [‘a’, ‘b’]
+	    for x, y in enumerate(arr):	  0 a
+		print(x, y) 		    1 b
+	    for x in enumerate(arr):	 (0, ‘a’)
+		print(x)			   (1, ‘b’)
+set
+{요소, 요소, 요소}  출력식 매번 순서가 다르며, 중복허용X
+set(자료형(리스트,문자열,range)) : 집합자료형, 중복 허용x, 수정은 불가, 삭제, 추가는 가능
+ex) a = {I for I in ‘pineapple’ if i not in ‘api’}
+	{‘e’, ‘I’, ‘n’}
+세트.remove(삭제할 값) : 집합자료형에서 값 삭제, 삭제할 값이 세트에 없으면 에러
+세트.discard(삭제할 값) : 집합에서 값 삭제, 삭제할 값이 없어도 에러 x
+세트. clear() : 전체 삭제
+세트.add(값) update(리스트, 집합) : 집합자료형에 값/값들 추가
+교집합 &, 세트.intersection(세트)
+합집합 |, 세트.union(세트)
+차집합 -, 세트.difference(세트)
+대칭차집합  ^, 세트.symmetric_difference(세트)
+세트.update(세트2) : 세트에 세트를 더함  |= 와 같음    ex)set1.update({1,2}) = set1|={1,2}
+세트.intersection_update(세트2) :  &= 와 같음
+세트.defference_update(세트2) :  -= 와 같음
+세트.symmetric_difference_update(세트2) :  ^= 와 같음
+세트.issubset(세트2) : 세트가 세트2의 부분집합인지 확인 출력 T/F  <= 연산자와 동일
+세트 < 세트2 : 세트가 세트2의 진부분집합인지 확인
+세트.issuperset(세트2) : 세트가 세트2의 상위 집합인지 확인  >= 연산자와 동일
+세트.isdisjoint(세트2) : 세트가 세트2와 겹치지 않는지 확인, 겹치는 요소가 없으면 True
+
+
+zip(리스트, 리스트) : 두개의 리스트를 같은 인덱스 끼리 묶어서 이터레이터 생성
+	 이를 이용해 리스트 두개의 조합으로 이루어진 딕셔너리 생성가능
+	ex) x = [1, 2]
+	    y = [a, b]
+	    zipped = zip(x, y)
+	    print(next(zipped))		 (1, a)
+	    print(next(zipped))		   (2, b)
+	ex) dict(zip(x, y))
+		 {1: a, 2:b}
+map(함수, 리스트) : 리스트의 요소를 함수에 넣어 결과 값으로 만든 리스트 리턴
+	ex) a = list(map(int,input().split()))
+a1, a2 = map(int, input().split())
+a, b = map(int, sys.stdin.readline().split())
+filter(함수, 리스트) : 리스트의 요소를 함수에 넣어 True인 값들로 만든 리스트 리턴
+	ex) filter(<3, list)
+ord(문자) : 문자를 아스키 코드로 변환
+chr(아스키코드) : 아스키코드를 문자로 변환
+
+소스 코드  코드실행기(인터프리터)  이진코드
+텍스트에디터 : 코드를 입력 할 수 있는 프로그램. ex) 파이썬IDLE, 메모장
+파이썬 인터프리터 : 파이썬 코드를 실행 할 수 있는 프로그램. ex) Python
+
+표현식(expression) : 어떠한 값을 만들어 내는 간단한 코드
+문장(statement) : 하나이상의 표현식
+프로그램(program) : 문장의 모임
+키워드(keyword) : 파이썬에서 이미 사용하겠다고 예약해놓은 단어
+	ex) False, continue, as return, class, break
+>>import keyword
+>>print(keyword.kwlist) 로 확인가능 
+식별자(identifier) : 변수 혹은 함수의 이름 (‘_’만 특수문자, 숫자시작X, 공백포함X)
+	ex) snake_case, CamelCase, alpha12
+주석(comment) : 프로그램의 진행에 영향을 주지않는 문장
+	ex) #주석입니다.		‘’‘주석입니다.’‘’
+자료(literal) : 어떠한 값
+
+이터러블 : 반복할 수 있는 것  내부에 있는 요소들을 차례차례 꺼낼 수 있는 객체
+				(리스트, 딕셔너리, 문자열 튜플)
+이터레이터 : 이터러블 중 next(이터러블) 함수를 적용해 하나하나 꺼낼 수 잇는 요소
+		 파이썬은 메모리의 효율성을 위해 필요한 시점에서 값을 생성
+
+print()함수 
+print(출력할 내용) : 문자, 숫자, 리스트 등등 모두 출력가능
+	ex)  print("안녕하세요“		 안녕하세요저는 전종현입니다
+	          “저는 전종현입니다”)
+	     print("""
+		  동해물과 백두산이	 줄바꿈이 있는 여러문장을
+	          마르고 닳도록		 프린트할 때 사용
+		  “”“)
+print(
+		“이렇게 입력해도 ”
+		“하나의 문자열로 연결되어 생성됩니다.”
+)  이렇게 입력해도 하나의 문자열로 연결되어 생성됩니다.
+print('Hello', end=' ') 
+print('Python')
+Hello Python
+
+print('Hello', end='&&&')
+print('Python')
+Hello&&&Python
+
+print('Hello', 'Python', sep='#')
+Hello#Python
+인덱싱(indexing) : 문자열의 특정 위치에 있는 문자 참조	“문자열”[인덱스]
+	ex) print("안녕하세요“[2])  하
+		print("안녕하세요“[-1])  요
+슬라이싱(slicing) : 문자열의 특정 범위를 선택	“문자열”[범위]		
+	ex) print("안녕하세요"[1:4])  녕하세
+		print("안녕하세요"[:4])  안녕하세
+확장 슬라이싱 : [::2]  2칸씩 뛰어서, [::-1] 거꾸로
+	       [:7:2]  처음부터 2칸씩 뛰어서 인덱스 6까지
+	       [2:8:2]  2부터 2칸씩 뛰어서 인덱스 7까지
+format() : "문자열{}문자열".format(대입할값) 대입할 값을 문자열의 {}에 대입
+	이때 대입할 값의 개수가 {}갯수 이상이어야 함
+(대입할 값이 문자열, 리스트등일때 앞에 *를 붙이면 요소하나하나가 매개변수로 지정됨)  format(*”년월일시분초”)
+	ex) “리스트의 길이는 {}이다”.format(len(list_a))  리스트의 길이는 2이다.
+	“{:5d}”.format(52)     52
+	“{:05d}”.format(52)  00052
+	“{:05d}”.format(-52)  -0052
+	“{:=+5d}”.format(52)  +  52
+	“{:10f}”.format(52.126)       52.126
+	“{:10.2f}”.format(52.126)      52.13  이때 자동 반올림
+	“{:g}”.format(52.0)  52	  의미 없는 소수점 제거
+	“{:b}”.format(숫자) {:o} {:x} : 숫자를 2,8,16진수로 표현
+		bin(숫자) oct() hex() : 위와 동일 (but 앞에 0b 0o 0x 붙음)
+	
+"문자열“.upper() "".lower() : 문자열을 대,소문자로 변환
+“문자열”.strip() lstrip, rstrip : 문자열의 공백(띄어쓰기, 탭, 줄바꿈)을 제거(r오른쪽, l왼쪽) 
+	 의도하지않은 문자열과 줄바꿈 제거, trim이라고 부르기도 함
+“문자열”.find() rfind() : 왼쪽(오른쪽)부터 처음 등장하는 위치를 찾음
+“문자열”.is함수() 결과가 True, False로 나타남
+“문자열”.isnum() : 문자열이 알파벳 또는 숫자로만
+“문자열”.isalpha() : 문자열이 알파벳으로만
+“문자열”.isidentifier() : 문자열이 식별자로 사용가능한지	 결과는 True or False
+“문자열”.isdecimal() : 문자열이 정수 형태인지		 boolean
+“문자열”.isdigit() : 문자열이 숫자로 인식 가능한지
+“문자열”.isspace() : 문자열이 공백으로만
+“문자열”.islower() "".isupper() : 문자열이 대,소문자로만 
+"문자열".split("기준") : 문자열을 기준으로 잘라 리스트화
+	ex)"010-9717-6277".split("-")  ["010", "9717", "6277"] 
+	 문자열을 리스트화
+“문자열”.join(문자열로 구성된 리스트)
+ex) print("::”.join([“1”, “2”, “3”]))  1::2::3
+리스트를 문자열화
+“문자열”.replace(찾을값, 바꿀값, 바꿀횟수)
+if 조건문
+조건문에서 None, 숫자0 0.0, 빈 컨테이너(빈문자열, 빈리스트, 빈바이트열, 빈튜플 빈 딕셔너리)는 모두 False로 변환.	
+not을 이용하여 저장된 값이 있는지 없는지 확인 가능
+if 불 값이 나오는 표현식(조건문):
+	불 값이 True일 때 실행할 문장
+elif 불 값이 나오는 표현식(조건문):
+	불 값이 True일 때 실행할 문장
+else:
+	불 값이 False일 때 실행할 문장
+
+for 반복문
+for 반복자 in 반복할 수 있는 것(문자열, 리스트, 딕셔너리, 범위): (i 필요 없을 시 _ 대체
+	반복 실행할 문장
+
+while 반복문
+while 불 표현식:  참일 경우 계속 문장을 반복
+	반복할 문장
+
+리스트(list)
+리스트명 = [요소, element, 숫자, 문자열]		(여러 자료형 저장 가능
+리스트명 = list()		(list() 이랑 []이랑 똑같음
+Ex) lis_a = list(range(-4, 10, 2))
+	=> [-4, -2, 0, 2, 4, 6, 8]
+리스트 연산자 : + * len()
+리스트명[인덱스] : 해당 인덱스의 요소를 불러냄
+리스트명.index(찾는 값) : 리스트에서 찾는 값의 인덱스를 반환
+리스트명[인덱스] = 요소 : 해당 인덱스의 요소를 변경함
+슬라이싱을 이용한 리스트 수정
+ex) a = [10, 20, 30]
+    a[1:1] = [500, 600]		a  [10, 500, 600, 20, 30] 
+리스트명.append(요소) : 리스트의 마지막에 요소 추가
+리스트명.insert(인덱스, 요소) : 해당 인덱스에 요소를 끼워 넣음
+리스트명.extend(리스트) : 리스트 뒤에 리스트를 추가
+del 리스트명[인덱스] : 해당 인덱스의 요소 제거(인덱스에 범위 설정 가능)
+리스트명.pop(인덱스) : 해당 인덱스의 요소 제거(인덱스 미설정시 마지막 값)
+리스트명.remove(값) : 리스트의 왼쪽부터 값과 일치하는 요소 하나만 제거
+리스트명.clear() : 리스트의 요소를 모두 제거
+리스트 평탄화(flatten) : 중첩된 리스트가 있을 때 중첩을 모두 제거하여 1차원 리스트화
+ex) list_a=[1, 2, 3]
+	list_b=[4, 5, 6]
+	list_a+list_b  [1, 2, 3, 4, 5, 6]	 비파괴적
+	list_c=[1, "안녕“, [11, 12]]
+	list_c[1][1]  녕	list_c[2][0]  11
+reversed(리스트) : 리스트를 뒤집음  제네레이터
+list(enumerater(리스트))  [(0. ‘요소a’), (2,’요소b’)… 형식
+	ex) for I, value in enumerate(리스트):
+		print(“{}번째 요소는 {}입니다.”.format(i, value))
+리스트 내포 : 리스트 이름 = [표현식 for 반복자 in 반복할 수 있는 것]
+	     리스트 이름 = [표현식 for 반복자 in 반복할 수 있는 것 if 조건문]
+	ex) array = [i*i for I in range(0.20.3)]
+	    Array = [fruit for fruit in 다른리스트 if fruit != “초콜릿”]
+	   a = [i*j for j in range(2, 10) for I in range(1, 10)]	
+		(for문이 여러 개일 때 뒤에서 앞으로 순
+리스트 중복제거 list(set(리스트이름))
+리스트.sort() : 리스트 정렬    sort(key=len)  길이로 정렬	key=abs 절댓값
+새로운 리스트 = sorted(리스트, 기준) 	reverse=True  내림차순
+
+튜플(tuple)
+리스트와 유사하지만, 변경, 추가, 삭제 불가 -> 읽기 전용
+튜플명 = (요소)
+ex)  a = (38, 23, 31, 55, 26)
+     a = 32, 564, 394
+
+딕셔너리(dictionary)
+키(key)를 기반으로 값(value)을 저장하는 것
+변수 = {	키: 값,
+	키: 값} (키는 문자열, 숫자, 불 ;; 값은 숫자, 문자열, 리스트, 딕셔너리 모두 가능)
+변수 = dict(키=값, 키=값)		(dict()이랑 {}이랑 똑같음
+변수 = dict(zip(리스트,리스트))
+출력형태 : {키: 값, 키: 값}
+딕셔너리[키] : 해당키의 값을 불러냄
+딕셔너리[새로운키] = 새로운 값 : 새로운 키에 새로운 값을 넣음(기존키면 값을 변경)
+딕셔너리.setdefault(새로운키, 값) : 새로운 키에 새로운 값을 할당
+딕셔너리.update(키=값) : 기존 키의 값 수정 (키가 없으면 추가함)
+딕셔너리.pop(키) : 키에 해당하는 값 삭제후 해당값 반환 	
+((키, 기본 값)하면 키 없을 경우 기본 값 반환
+딕셔너리.keys() : 딕셔너리의 키만 뽑아냄 (list가 아님)
+딕셔너리.values() : 딕셔너리의 값만 뽑아냄
+del 딕셔너리[키] = 해당키와 값을 모두 제거
+딕셔너리.get(찾으려는 키) : 딕셔너리에 찾으려는 키의 값을 불러냄(없을 시 none)
+	 없는 키에 대한 접근 시 error가 아닌 none을 반환
+	((찾으려는 키, 기본값) 하면 키가 없을 경우 기본값 반환
+키 in 딕셔너리 로 딕셔너리 내부에 해당 키가 있는지 확인가능
+딕셔너리.items() : 키와 값을 짝지어 튜플화 dict_items([(‘키a’, ‘값a’), (‘키b’, ‘값b’)…]) 형식
+	ex) for key, element in 딕셔너리.items():
+		print(“dictionary[{}] = {}”.format(key, element))
+dict.fromkeys(딕셔너리) : 키 리스트로 딕셔너리를 생성, 값은 모두 None
+	(딕셔너리, 기본값)하면 값은 모두 기본값으로 할당
+딕셔너리 내포? : {key: 0 for key in dict.formkeys([‘a’,’b’]).keys()}
+			 {‘a’:0, ‘b’:0}
+		{key: value for key, value in x.items() if value != 20}
+			
+함수
+def 함수이름(매개변수value):
+	변수=초깃값
+	#여러가지 처리
+	return 변수
+인수를 순서대로 넣을 때는 리스트나 튜플을 언패킹(unpacking)하여 사용할 수도 있음
+언패킹 : 리스트, 튜플 앞에 *를 붙여 매개변수로 사용	(*변수명, *(), *[]
+ex) x=[1,2,3],	함수명(*x) == 함수명(1,2,3)
+딕셔너리 언패킹 : 딕셔너리명 앞에 ** 붙임	(단, 매개변수 개수 = 딕셔너리 키 개수
+가변 매개변수 : 매개변수를 원하는 만큼 받을 수 있는 (단, 가변 매개변수 뒤에는 일반 매		개변수가 올 수 없고, 가변 매개변수는 하나만 사용 가능).
+		 가변 뒤에 기본이 올 때 가변이 우선시 됨.
+	def 함수이름(매개변수, 매개변수, *가변 매개변수)
+기본 매개변수 : ‘매개변수 = 값’ 형태, 매개변수 미 입력시 들어가는 기본값(기본 매개변수 뒤에 일반 매개변수가 올 수 없음)
+	ex) def print_n_times(value, n=2):
+키워드 매개변수 : 인수의 순서와 용도를 매번 기억하지 않도록	(기본값 설정해줌
+	ex) def print_n_times(*values, n=2):
+		...
+	    print_n_times(“안녕하세요”, “즐거운”, n=3)
+
+	def test(a=1, b=10, c=100):
+    		print(a*b+c)
+	test(c=2, a=3, b=4)
+	 14
+return : 함수를 실행했던 위치로 돌아가라는 뜻. 함수의 결과 값(return value)을 돌려줄 	때 (아무 것도 없을 때 None 출력
+global 변수이름 : 함수 밖에서 선언한 변수를 함수 안에서 사용할 수 있게 해 줌.
+
+재귀함수(recursion) : 자기 자신을 호출하는 함수.
+    ex) def factorial(n):
+		if n==0:
+			return 1
+		else:
+			return n * factorial(n-1)
+메모화 : 재귀함수에서 같은 값을 한번만 계산하도록 메모해 두는 것
+ex) 	dictionary = {
+		1: 1,
+		2: 2
+	}
+	def fibonacci(n):
+	if n in dictionary:
+		return dictionary[n]
+	else:
+		output = fibonacci(n-1) + fibonacci(n-2)
+		dictionary[n] = output	 함수의 결과값을 딕셔너리에 저장, 같은 계산
+		return output		    반복 방지
+
+고급함수
+
+튜플
+튜플 = (요소, 요소)  (단, 괄호 생략 가능
+	리스트와 비슷한 자료형, 한번 선언 후 내용 변경불가
+	리턴에 튜플을 사용하면 여러 개의 값 리턴 가능.
+	ex) tuple_test = (10, 20, 30), 	a, b, c = 1, 2, 3  여러 값 동시 선언
+	ex) return(10, 20)
+	a, b = b, a  튜플을 이용한 편리한 값 교환
+람다
+lambda 매개변수 : 리턴 값 
+	매개변수로 함수를 사용 가능하게 해줌
+	매개변수 여러 개도 가능
+	함수 선언하지 않고 바로 매개변수로 람다 사용가능 (map(), filter()등
+	ex) def power(item):
+		return item * item power = lambda x: x*x
+	
+	    map(lambda x: x * x, list_a)
+파일처리
+파일과 관련된 처리를 하는 함수는 표준함수가 기본으로 제공. (텍스트, 바이너리 파일)
+
+파일열기, 쓰기, 닫기
+파일 객체 = open(문자열: 파일 경로, 문자열: 읽기 모드)
+	모드 “w”(새로 쓰기), "a"(뒤에 이어서 쓰기), “r”(읽기)
+파일 객체.write()
+파일 객체.close() 	(with구문으로 자동으로 파일 닫기 가능
+    ex) file = open("basic.txt", "w")
+	file.write(“Hello Python Programming...!”)
+	file.close()
+
+	with open("basic.txt", "w") as file:
+		file.write(“Hello Python Programming...!”)
+
+텍스트 일기
+파일객체.read() : 파일 내부에 있는 데이터 모두 읽어 출력
+
+오류
+구문오류(SyntaxError) : 괄호의 개수, 들여쓰기 문제등 프로그램 실행 전 발견되는 코드의
+			문법적 오류 
+예외(exception) : 프로그램 실행 중 일어나는 오류  (=런타임에러)
+
+예외처리 : 예외를 해결하는 모든 것
+1) 조건문 사용
+ex)
+	user_input=input("정수 입력>")
+	if user_input.isdigit():
+		number_input=int(user_input)
+		print("원의 넓이:", 3.14*number_input*number_input)
+	else:
+		print("정수를 입력하지 않았습니다.")
+2) try구문 사용
+try:
+예외가 발생할 가능성이 있는코드
+except:
+예외가 발생했을 때 실행할 코드 (pass를 써서 프로그램 강제종료만 막을 수 도)
+	예외객체(Exception object) : 예외정보
+ex)except Exception as e:	 이렇게 하면 오류 내용을 출력함
+   	   print(e);		 오류내용(Exception)을 e에 저장
+except 구문 뒤에 예외의 종류를 입력해서 예외 구분 가능 (예외별 실행코드 작성가능
+    try:
+	예외가 발생할 가능성이 있는 구문
+    except 예외의 종류 as 예외 객체를 활용할 변수 이름:
+	예외의 발생했을 때 실행할 구문
+
+    ex) except ValueError as exception:
+		print("정수를 입력 하세요")
+		(print(exception))
+	except IndexError:
+		print("리스트의 인덱스를 벗어났어요.")
+
+ 마지막에 except Exception as exception:을 써서 모든 경우 예외처리, 예상하지 못한 예외로 인해 프로그램이 죽는 것 방지 가능
+
+else:
+예외가 없는 안전한 코드
+finally:
+예외 여부와 상관없이 무조건 시행할 코드 (주로 close()
+ex)
+	try:
+		user_input=int(input("정수 입력>"))
+	except:
+		print("정수를 입력하지 않았습니다.")		
+	else:
+		print("원의 넓이:", 3.14*number_input*number_input)
+
+raise 예외 객체 : 아직 미구현한 부분에서 일부러 예외를 발생시켜 프로그램 죽게 만듬.
+	ex) if number>0:
+		raise NotImplementedError
+
+제너레이터(generator) : 범위의 값을 미리 생성하지 않고, 필요할 때 하나씩 리턴(yield)
+ 실제 값들을 모두 생성해서 저장하는 것보다 월등한 메모리 효율을 보여줌
+ex) def range(start, end, step):
+	while start < end:
+yield start	// retrun과 달리 값을 반환하고 다음 호출을 대기함
+		start += step
+enumerate : list, set, tuple등에서 인덱스와 값을 enumerate객체로 리턴
+ex) 	a [‘a1’, ‘a2’, ‘a3’]
+for I, v in enumerate(a):
+		print(I, v)	 0 a1 \n 1 a2 \n 2 a3
+
+
+
+
+모듈
+여러 변수와 함수를 가지고 있는 집합체로, 표준모듈과 외부모듈로 나눔.
+import 모듈 이름 : 모듈을 가져오는 구문
+from 모듈이름 import 가져옹고 싶은 변수 또는 함수 : 모듈이름 생략가능
+	ex) from math import sin, cos, tan, floor
+	    sin(1)
+	    floor(2.5)
+import 모듈 as 사용하고 싶은 식별자 : 모듈이름을 겹치지 않거나 간략히 수정 가능
+	ex) import math as m  math라는 모듈을 m으로 치환
+모듈
+import math
+math.ceil(x) : 올림
+math.floor(x) : 내림
+log(x[, base]) : 로그값
+
+import random
+random.random() : 0 부터 1사이의 값을 추출
+random.randrange(시작, 끝) : 시작부터 끝 사이의 수중 하나를 추출
+random.sample(범위, 숫자) : 주어진 범위안에서 중복없이 숫자만큼의 수를 뽑아 리스트화
+random.choice(범위) : 범위안에서 숫자를 추출 (범위에 리스트가능, 결과에 중복값 가능)
+
+from collections import Counter
+Counter(리스트) : 리스트 안에 값들이 몇 개 있는지
+	Ex) mode = Counter([0, 1, 2, 0])
+	    print(mode)	 Counter({0: 2, 1: 1, 2: 1})
+Counter(리스트)로 선언된 값.most_common() : 많은 수부터 내림차순 정렬
+modes = mode.most_common()  [(0, 2), (1, 1), (2, 1)]
+
+import itertools
+itertools.permutations(map(str, 리스트명), 추출할 개수) : 순서상관o, 중복x, 개수많큼 추출
+itertools.product(str, 추출할 개수) : 순서상관o, 중복o, 개수많큼 추출
+itertools.combinations(str, 추출할 개수) : 순서상관 x, 중복x, 개수많큼 추출 (조합)
+itertools.combinations_with_replacement(str, 추출할 개수) : 순서상관 x, 중복o
+	ex) print(“\n”.join(list(map(‘ ’.join, itertools.combinations(map(str, 리스트명), 2))))))
+
+import datetime
+datetime.datetime.now()
+now.year/month/dat/hour/minute/second()
+now.strftime(“%Y.%m.%d.%H:%M:%S”)  2020.03.12 15:43:28
+now.strftime(“%Y{} %m{} %d{} %H{} %M{} %S{}”).fortmat(*”년월일시분초”)
+	 2020년 03월 12일 15시 43분 28초
+
+import time
+time.sleep(x) : x초만큼 프로그램을 정지
+
+import urllib
+urllib.request
+
+중요사이트
+온라인컴파일러 https://onlinegdb.com
+코드 예제 https://github.com, https://github.com/django/django
+순열과 조합 https://infinitt.tistory.com/114	
+점프투 파이썬 https://wikidocs.net/15/
+알고리즘 정리 블로그 https://juhee-maeng.tistory.com/91
+예제
+
+[리스트를 평탄화]
+	def flatten(data):
+	    first = []
+	    for i in data:
+	        if type(i)==list:
+	            first = first +flatten(i)
+	        else:
+	            first.append(i)
+	    return(first)
+	example = [[1, 2, 3], [[4, 5], 6], 7, [8, 9]]
+	print(flatten(example))
+DFS BFS 파이썬으로 구현
+http://ejklike.github.io/2018/01/05/bfs-and-dfs.html
+ 
