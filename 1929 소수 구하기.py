@@ -10,6 +10,7 @@ num.extend([True for _ in range(n, m+1)])
 for i in range(2, int(m**0.5)+1): # check up to square root m
     for j in range(2*i, m+1, i):
         num[j]=False
+        
 for i in range(2, len(num)):
     if num[i]:
         print(i)
