@@ -1,15 +1,20 @@
-formula = input()
+import sys
+input = sys.stdin.readline
+formula = input().rstrip()
 num = []
-tmp = ""
-sign = True
+ind = 0
+sign = 1
 for i in range(len(formula)):
     now = formula[i]
-    if now.isdigit():
-        tmp += now
-    elif num[i] == '-':
-        num.append(int(tmp) if sign else -int(tmp))
-        tmp = ''
-        sign = True if now == '+' else False
-        
+    if now == '+':
+        num.append(sign*int(formula[i-ind:i]))
+        ind = -1
+    elif now == '-':
+        num.append(sign*int(formula[i - ind:i]))
+        sign = -1
+        ind = -1
     if i == len(formula)-1:
-        num.append(int(tmp) if sign else -int(tmp))
+        num.append(sign * int(formula[i - ind:i+1]))
+    ind +=1
+print(num)
+print(sum(num))

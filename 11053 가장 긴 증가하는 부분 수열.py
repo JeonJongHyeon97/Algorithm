@@ -19,6 +19,3 @@ print(max(dp))
 
 
 
-for 
-
-
