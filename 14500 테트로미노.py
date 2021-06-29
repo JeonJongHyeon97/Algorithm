@@ -1,3 +1,6 @@
+# BFS로 풀경우 시간초과가 남
+# 테트로미노는 경우가 19가지 밖에 없으므로 직접 하드 코딩
+
 import sys
 input = sys.stdin.readline
 
