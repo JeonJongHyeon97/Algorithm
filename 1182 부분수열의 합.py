@@ -14,9 +14,6 @@ def dfs(queue, visited):
     global cnt
     if sum(queue) == s:
         cnt+=1
-        print(queue)
-        print(visited)
-        print()
     if sum(queue) > s or len(queue) == n:
         return
     for i in range(len(num)):
@@ -34,4 +31,5 @@ def dfs(queue, visited):
 for i in range(len(num)):
     queue = [num[i]]
     dfs(queue, [i])
+    
 print(cnt)

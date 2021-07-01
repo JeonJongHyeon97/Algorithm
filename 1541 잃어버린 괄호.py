@@ -16,5 +16,5 @@ for i in range(len(formula)):
     if i == len(formula)-1:
         num.append(sign * int(formula[i - ind:i+1]))
     ind +=1
-print(num)
+    
 print(sum(num))
