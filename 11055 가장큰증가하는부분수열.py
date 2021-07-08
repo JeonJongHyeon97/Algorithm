@@ -15,3 +15,9 @@ for i in range(n):
             dp[i] = max(dp[i], dp[j] + num[i])
             print(dp)
 print(max(dp))
+
+
+
+
+
+
