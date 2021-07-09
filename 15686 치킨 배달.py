@@ -17,15 +17,22 @@ for i in range(n):
         house.append([i, j])
     for k in list(filter(lambda x: tmp[x] == 2, range(len(tmp)))):
         chicken.append([i, k])
-tmp = 99999999
-for j in combinations([k for k in range(len(chicken))], m):
+answer = 99999999
+for j in combinations(range(len(chicken)), m):
+    # print("--------j", j)
     total = 0
+    
     for i in house:
-        total += distance(i, j)
-    print(total)
-    tmp = min(tmp, total)
-
-print(tmp)
+        nearest = 999999
+        # print("house : ", i)
+        for k in j:
+            # print(chicken[k])
+            nearest = min(nearest, distance(i, chicken[k]))
+            # print("distance : ", distance(i, chicken[k]))
+        total += nearest
+        # print("total : ", total)
+    answer = min(answer, total)
+print(answer)
 
 
 

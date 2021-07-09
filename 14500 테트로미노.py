@@ -43,14 +43,10 @@ def find(x, y):
         answer = max(answer, result)
 
 
-def solve():
-    for i in range(n):
-        for j in range(m):
-            find(i, j)
-
-
 answer = 0
-solve()
+for i in range(n):
+    for j in range(m):
+        find(i, j)
 print(answer)
 
 
