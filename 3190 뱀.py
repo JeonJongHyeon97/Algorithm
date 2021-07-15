@@ -1,6 +1,8 @@
 # -*- coding: utf-8 -*-
 from collections import deque
 
+
+
 board = []
 snake = deque()
 apple = []
@@ -31,8 +33,6 @@ while not stop:
     print("---------------------", cnt)
     for bd in board:
         print(*bd)
-    
-
     head = [head[0]+dx[c], head[1]+dy[c]]
     # snake head is not on wall and it's body
     if 1 <= head[0] <= n and 1 <= head[1] <= n and head not in snake:
@@ -40,7 +40,7 @@ while not stop:
         # not eat apple
         if head not in apple:
             snake.popleft()
-            print(snake)
+            # print(snake)
         # eat apple
         else:    
             apple.remove(head)

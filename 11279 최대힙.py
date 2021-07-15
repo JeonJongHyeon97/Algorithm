@@ -1,15 +1,15 @@
-# -*- coding: utf-8 -*-
+import sys
+import heapq
+input = sys.stdin.readline
+n= int(input())
+heap = []
 
-n = int(input())
-
-num = list(map(int, input().split()))
-dp=num.copy()
-
-for i in range(len(num)):
-    for j in range(i):
-        
-
-
-
-
-
+for _ in range(n):
+    num = int(input())
+    if num != 0:
+        heapq.heappush(heap, (-num))
+    else:
+        if len(heap) > 0:
+            print(-1 * heapq.heappop(heap))
+        else:
+            print(0)
