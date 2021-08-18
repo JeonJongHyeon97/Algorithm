@@ -8,4 +8,3 @@ for i in range(m):
 
 print(answer)
 
-

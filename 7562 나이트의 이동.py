@@ -23,7 +23,7 @@ for t in range(int(input())):
         for i in range(8):
             new_x = x + dx[i]
             new_y = y + dy[i]
-            if 0<= new_x < l and 0 <= new_y <l and visited[new_x][new_y]:
+            if 0 <= new_x < l and 0 <= new_y <l and visited[new_x][new_y]:
                 matrix[new_x][new_y] = matrix[x][y] +1
                 if new_x == e_x and new_y == e_y:
                     repeat = False

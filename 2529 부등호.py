@@ -33,6 +33,7 @@ for i in range(10):
     visit[i] = False
     DFS([i], visit)
 answer.sort()
+
 for i in answer[-1]:
     print(i, end="")
 print()

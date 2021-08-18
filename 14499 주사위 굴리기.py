@@ -18,7 +18,6 @@ def move(n, dice):
 
 dice = [0 for _ in range(7)]
 
-
 dx = [0, 1, -1, 0, 0]
 dy = [0, 0, 0, -1, 1]
 
@@ -33,4 +32,5 @@ for i in command:
             dice[6] = mat[y][x]
             mat[y][x] = 0
         print(dice[1])
+
 
