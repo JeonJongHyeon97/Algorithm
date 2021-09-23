@@ -16,6 +16,7 @@ for friend in dict[1]:
     if friend not in visited:
         visited.append(friend)
         invited.append(friend)
+
 for friend in invited.copy():
     for next_friend in dict[friend]:
         if next_friend not in visited:
